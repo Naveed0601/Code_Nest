@@ -15,12 +15,12 @@ const Features = () => {
         </p>
         <div className="flex flex-wrap gap-4">
           <Link to={"/login"}>
-            <button className="flex justify-center items-center w-full sm:w-36 h-12 rounded-md text-base text-white hover:text-blue-600 font-normal tracking-wide font-noto bg-blue-600 hover:bg-blue-200">
+            <button className="flex justify-center items-center p-2 w-full sm:w-36 h-12 rounded-md text-base text-white hover:text-blue-600 font-normal tracking-wide font-noto bg-blue-600 hover:bg-blue-200">
               Get Started <FaArrowRight className="ml-1" />
             </button>
           </Link>
           <Link to={"/login"}>
-            <button className="flex justify-center items-center w-full sm:w-36 h-12 rounded-md text-base text-blue-600 hover:text-white font-normal tracking-wide font-noto bg-blue-200 hover:bg-blue-600">
+            <button className="flex justify-center items-center p-2 w-full sm:w-36 h-12 rounded-md text-base text-blue-600 hover:text-white font-normal tracking-wide font-noto bg-blue-200 hover:bg-blue-600">
               Book a demo <LuMousePointerClick className="ml-1" />
             </button>
           </Link>

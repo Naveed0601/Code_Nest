@@ -62,8 +62,8 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-gray-950 p-4 space-y-4">
-          <ul className="flex flex-col justify-center items-center space-y-4">
+        <div className=" md:hidden bg-gray-950 p-4 space-y-4">
+          <ul className=" flex flex-col justify-center items-center space-y-4">
             {[
               "Home",
               "About",

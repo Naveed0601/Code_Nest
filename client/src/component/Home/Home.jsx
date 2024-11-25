@@ -21,7 +21,7 @@ const Home = () => {
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
         <Link to={"/login"}>
-          <button className="flex justify-center items-center w-full sm:w-36 h-12 rounded-md text-base sm:text-lg text-white hover:text-blue-600 font-normal tracking-wide font-noto bg-blue-600 hover:bg-blue-200">
+          <button className="flex justify-center items-center w-full sm:w-36 p-2 h-12 rounded-md text-base sm:text-lg text-white hover:text-blue-600 font-normal tracking-wide font-noto bg-blue-600 hover:bg-blue-200">
             Get Started <FaArrowRight className="ml-1" />
           </button>
         </Link>

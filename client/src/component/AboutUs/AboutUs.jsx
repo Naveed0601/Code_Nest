@@ -14,7 +14,7 @@ const AboutUs = () => {
           className="w-full md:w-[400px] h-auto p-2 m-2 rounded-full object-cover"
         />
         {/* Text and Button */}
-        <div className="md:pr-12 pl-8 mt-8 md:mt-0 w-full md:w-1/2">
+        <div className="lg:ml-48 md:pr-12  mt-8 md:mt-0 w-full md:w-1/2">
           <h1 className="font-bold tracking-wide text-3xl text-teal-400 font-noto">
             ABOUT US
           </h1>

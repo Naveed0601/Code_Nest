@@ -10,6 +10,7 @@ import rectangle2 from "../../assets/Rectangle1.png";
 import young_man from "../../assets/young_man.png";
 import login from "../../assets/Login.png";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -110,12 +111,19 @@ const Login = () => {
               Forget Password?
             </p>
           </Link>
-          <button
-            type="submit"
-            className="bg-[#FCE2CE] dark:bg-[#F8C9A4] font-sora font-bold text-amber-900 w-full md:w-[400px] h-10 rounded-full mt-10"
+
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400, damping: 8 }}
           >
-            Login
-          </button>
+            <button
+              type="submit"
+              className="bg-[#FCE2CE] dark:bg-[#F8C9A4] font-sora font-bold text-amber-900 w-full md:w-[400px] h-10 rounded-full mt-10"
+            >
+              Login
+            </button>
+          </motion.div>
           <p className="text-center mt-6 text-custom-brown"> - or - </p>
           <div className="flex justify-center items-center mt-6 gap-4 cursor-pointer">
             <FcGoogle className="text-2xl mt-1" />

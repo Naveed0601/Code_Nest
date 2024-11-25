@@ -8,11 +8,22 @@ import Review from "../component/Review/Review";
 import Footer from "../component/Footer/Footer";
 import Header from "../component/Header/Header";
 import { Route, Routes } from "react-router-dom";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const Intro = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
   return (
     <div className="bg-gray-950 pt-20">
       <Header />
+      <motion.div
+        className="h-3 bg-red-600 fixed left-0 right-0"
+        style={{ scaleX }}
+      />
       <Routes>
         <Route
           path="/"

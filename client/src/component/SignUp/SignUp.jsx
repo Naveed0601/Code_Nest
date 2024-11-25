@@ -12,6 +12,7 @@ import young_man2 from "../../assets/young_man2.png";
 import signup from "../../assets/Sign-Up.png";
 import { IoIosContact } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -139,12 +140,19 @@ const SignUp = () => {
             <FaRegEyeSlash className="cursor-pointer absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
           </div>
           <Link to={"/login"}>
-            <button
-              type="submit"
-              className="bg-[#FCE2CE] dark:bg-[#F8C9A4] font-sora font-bold text-amber-900 w-full h-10 rounded-full mt-8 md:mt-10"
+            <motion.div
+              className="box"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 8 }}
             >
-              Create Account
-            </button>
+              <button
+                type="submit"
+                className="bg-[#FCE2CE] dark:bg-[#F8C9A4] font-sora font-bold text-amber-900 w-full h-10 rounded-full mt-8 md:mt-10"
+              >
+                Create Account
+              </button>
+            </motion.div>
           </Link>
           <p className="text-center mt-6 text-custom-brown"> - or - </p>
           <div className="flex justify-center items-center mt-6 gap-4">
