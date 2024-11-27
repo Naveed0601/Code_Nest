@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaArrowRight, FaBolt } from "react-icons/fa6";
 import { LuMousePointerClick } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { useInView } from "framer-motion";
 
 const Features = () => {
+  //TitleRef and FeatureCard animation
+  const TitleRef = useRef(null);
+  const FeatureRef = useRef(null);
+  const isInViewFeatureCard = useInView(FeatureRef, { once: true });
+  const isInViewTitle = useInView(TitleRef, { once: true });
+
   return (
-    <div className="w-full h-full pt-28 px-4 md:px-8 overflow-x-hidden">
-      <div className="w-full md:w-[600px] p-6">
+    <div className=" w-full h-full pt-28 px-4 md:px-8 overflow-x-hidden">
+      {/*Title , Subtitle & buttons */}
+      <div
+        className="w-full md:w-[600px] p-6"
+        ref={TitleRef}
+        style={{
+          transform: isInViewTitle ? "none" : "translateX(-200px)",
+          opacity: isInViewTitle ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        }}
+      >
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-wide font-noto mb-6 text-yellow-400">
           Elevate Your Coding Game with CodeNest
         </h1>
@@ -28,7 +44,15 @@ const Features = () => {
       </div>
 
       {/* Features Grid Section */}
-      <div className="w-full p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        className="w-full p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        ref={FeatureRef}
+        style={{
+          transform: isInViewFeatureCard ? "none" : "translateX(-200px)",
+          opacity: isInViewFeatureCard ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        }}
+      >
         {featuresData.map((feature, index) => (
           <FeatureCard
             key={index}

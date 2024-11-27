@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useRef } from "react";
 import ceo1 from "../../assets/CEO1.png";
 import ceo2 from "../../assets/CEO2.png";
 import ceo3 from "../../assets/CEO3.png";
 import { BiSolidQuoteAltLeft } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useInView } from "framer-motion";
 
 const Testimonials = () => {
+  // Refs for Left and Right Sections
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+
+  // Checking if Left and Right Sections are in view
+  const isLeftInView = useInView(leftRef, { once: true });
+  const isRightInView = useInView(rightRef, { once: true });
+
   return (
     <div className="w-full h-full mt-28 overflow-x-hidden px-4 sm:px-8">
       <div className="flex flex-col sm:flex-row w-full">
-        {/* Left Side (Text and button) */}
-        <div className="w-full sm:w-1/2 flex flex-col justify-center items-start p-4 sm:p-6">
+        {/* Left Side (Text and Button) */}
+        <div
+          ref={leftRef}
+          style={{
+            transform: isLeftInView ? "none" : "translateX(-200px)",
+            opacity: isLeftInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
+          className="w-full sm:w-1/2 flex flex-col justify-center items-start p-4 sm:p-6"
+        >
           <h1 className="text-blue-600 text-lg sm:text-xl font-noto">
             SOFTWARE DEVELOPERS, CONTENT CREATORS LOVE CODENEST
           </h1>
           <h1 className="text-2xl sm:text-3xl text-gray-600 font-noto mt-4">
             Testimonials
           </h1>
-          <p className="text-gray-100 font-glyphic font-bold mt-4 text-sm sm:text-base">
+          <p className="text-gray-100 font-glyphic mt-4 text-sm sm:text-base">
             Don't just take our word for it, read from our extensive list of
             case studies...
           </p>
@@ -28,15 +45,24 @@ const Testimonials = () => {
           </Link>
         </div>
 
-        {/* Right Side (Testimonials) */}
-        <div className="w-full sm:w-1/2 flex flex-col justify-center items-start p-4 sm:p-6 space-y-6">
+        {/* Right Side (Testimonials Cards) */}
+        <div
+          ref={rightRef}
+          style={{
+            transform: isRightInView ? "none" : "translateX(200px)",
+            opacity: isRightInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
+          className="w-full sm:w-1/2 flex flex-col justify-center items-start p-4 sm:p-6 space-y-6"
+        >
           {testimonialsData.map((testimonial, index) => (
-            <TestimonialsCard
-              key={index}
-              title={testimonial.CeoTitle}
-              description={testimonial.description}
-              image={testimonial.image}
-            />
+            <MultilayerCardV_1 key={index}>
+              <TestimonialsCard
+                title={testimonial.CeoTitle}
+                description={testimonial.description}
+                image={testimonial.image}
+              />
+            </MultilayerCardV_1>
           ))}
         </div>
       </div>
@@ -44,8 +70,17 @@ const Testimonials = () => {
   );
 };
 
+const MultilayerCardV_1 = ({ children }) => {
+  return (
+    <div className="relative w-full">
+      <div className="absolute scale-x-95 inset-0 -rotate-[5deg] rounded-lg bg-gray-200 dark:bg-zinc-800 py-10" />
+      {children}
+    </div>
+  );
+};
+
 const TestimonialsCard = ({ title, description, image }) => (
-  <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
+  <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg relative mt-5 mb-5">
     <p className="text-gray-600 flex text-justify font-noto text-sm sm:text-base">
       <BiSolidQuoteAltLeft className="text-3xl sm:text-4xl text-blue-600 mr-4" />
       "{description}"

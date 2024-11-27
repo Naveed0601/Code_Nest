@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const Review = () => {
+  // animation text
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  // review information
   const reviewData = [
     { count: "144K", label: "DOWNLOADS" },
     { count: "200K", label: "USERS" },
@@ -9,9 +15,15 @@ const Review = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-center h-full pt-16 px-4 md:px-8 space-y-6 border-b border-white pb-16 mb-12 overflow-x-hidden">
+    <div className="flex flex-col justify-center items-center h-full pt-16 px-4 md:px-8 lg:px-16 space-y-8 border-b border-white pb-16 mb-12 overflow-x-hidden">
       {/* Display items in a single column for mobile and tablet, switch to row on desktop */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-screen-lg">
+      <motion.div
+        ref={ref}
+        initial={{ filter: "blur(20px)", opacity: 0 }}
+        animate={isInView ? { filter: "blur(0px)", opacity: 1 } : {}}
+        transition={{ duration: 1.2 }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-screen-xl"
+      >
         {reviewData.map((item, index) => (
           <div
             key={index}
@@ -25,7 +37,7 @@ const Review = () => {
             </p>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
