@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <div className="flex flex-col md:flex-row justify-between items-center w-full lg:px-0">
       {/* Image Section */}
-      <div className="w-full md:w-1/2 flex justify-center lg:justify-end relative order-1 lg:order-2 mb-10 lg:mb-0">
+      <div className="lg:mr-20 w-full md:w-1/2 flex justify-center lg:justify-end relative order-1 lg:order-2 mb-10 lg:mb-0">
         <img src={login} alt="login" className="absolute lg:mr-[180px] mt-20" />
         <img
           src={rectangle2}
@@ -74,7 +74,7 @@ const Login = () => {
       </div>
 
       {/* Form Section */}
-      <div className="flex flex-col items-center w-full md:w-1/2 order-2 lg:order-1">
+      <div className="flex flex-col items-center w-full md:w-1/2 order-2 lg:ml-20 lg:order-1">
         <h1 className="text-3xl font-sora font-extrabold text-center">
           Welcome Back!!
         </h1>

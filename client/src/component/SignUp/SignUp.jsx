@@ -59,7 +59,7 @@ const SignUp = () => {
 
   return (
     <div className="flex flex-col md:flex-row justify-between items-center w-full overflow-hidden md:px-8 lg:px-12">
-      <div className="w-full md:w-1/2 flex justify-center md:justify-start relative md:mb-0 ">
+      <div className="w-full md:w-1/2 flex justify-center md:justify-start relative md:mb-0 lg:ml-20">
         <img src={signup} alt="signup" className="absolute mt-20 md:hidden" />
         <img
           src={rectangle2}
@@ -78,7 +78,7 @@ const SignUp = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center w-full md:w-1/2 px-4  md:px-0">
+      <div className="flex flex-col items-center w-full md:w-1/2 px-4 md:px-0 lg:mr-10">
         <h1 className="text-3xl font-sora font-extrabold text-center  lg:mt-10">
           Welcome Back!!
         </h1>
