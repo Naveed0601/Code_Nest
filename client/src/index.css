@@ -4,3 +4,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+button.focus:outline-none {
+  z-index: 60; /* Ensure it’s above the sidebar */
+  position: absolute; /* Make sure it doesn't get pushed around */
+  top: 1rem; /* Adjust to match your layout */
+  left: 1rem; /* Adjust to match your layout */
+}
