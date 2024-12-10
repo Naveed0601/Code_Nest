@@ -14,7 +14,7 @@ const Path = (props) => (
 const MenuToggle = ({ toggle, isOpen }) => (
   <button
     onClick={toggle}
-    className={`focus:outline-none z-50 absolute top-[16px] left-4 ml-20`} // Conditionally change margin-left based on isOpen state
+    className={`focus:outline-none z-50 absolute top-[16px] left-4 ml-20 -mt-1 lg:mt-1`} // Conditionally change margin-left based on isOpen state
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path

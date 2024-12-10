@@ -1,4 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.mjs
+import tailwindcssAnimate from 'tailwindcss-animate';
+
 export default {
   content: [
     "./index.html",
@@ -9,19 +11,73 @@ export default {
       fontFamily: {
         glyphic: ["Faculty Glyphic"],
         sora: ["Sora"],
-        noto: ["Noto Serif Display", "serif"],
+        noto: ["Noto Serif Display", "serif"]
       },
       colors: {
-        "custom-brown": "#553922",
-        "custom-brown2": "#C3824E",
-        "dark-bg": "#121212",
-        "dark-text": "#e0e0e0",
-        "light-bg": "#ffffff", 
-        "light-text": "#1f1f1f", 
-        "accent": "#FF6347",       },
-    },
+        'custom-brown': '#553922',
+        'custom-brown2': '#C3824E',
+        'dark-bg': '#121212',
+        'dark-text': '#e0e0e0',
+        'light-bg': '#ffffff',
+        'light-text': '#1f1f1f',
+        'accent': '#FF6347',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))'
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))'
+        },
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))'
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))'
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))'
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))'
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))'
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        chart: {
+          '1': 'hsl(var(--chart-1))',
+          '2': 'hsl(var(--chart-2))',
+          '3': 'hsl(var(--chart-3))',
+          '4': 'hsl(var(--chart-4))',
+          '5': 'hsl(var(--chart-5))'
+        },
+        zinc: {
+          800: "#27272a",
+          950: "#18181b",
+        },
+        brown: {
+          100: "#d1a994",
+          300: "#8b4513",
+        },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)'
+      }
+    }
   },
-  darkMode: "class",
+  darkMode: ["class", "class"],
   variants: {
     extend: {
       backgroundColor: ['dark'],
@@ -32,5 +88,5 @@ export default {
       opacity: ['dark'], 
     },
   },
-  plugins: [],
+  plugins: [tailwindcssAnimate],
 }
